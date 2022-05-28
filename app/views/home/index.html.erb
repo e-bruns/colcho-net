@@ -1,0 +1,7 @@
+<h1><%= t '.recent_post' %></h1>
+<div id="rooms">
+  <% @rooms.each do |room| %>
+    <li><%= link_to room.complete_name, room %></li>
+  <% end %>
+</div>
+

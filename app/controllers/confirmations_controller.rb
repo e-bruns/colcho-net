@@ -4,6 +4,7 @@ class ConfirmationsController < ApplicationController
 
     if user.present?
       user.confirm!
+      session[:user_id] = user.id
       redirect_to user, :notice => I18n.t('users.confirmations.success')
     else
       redirect_to root_path

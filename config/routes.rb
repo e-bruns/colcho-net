@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     resources :rooms
     resources :users
     
-    resource :confirmation, :only => [:show]
+    resource :confirmation, only: [:show]
+
+    resource :user_sessions, only: [:create, :new, :destroy]
+    get 'login', to: 'user_sessions#new', as: 'login'
+    get 'logout', to: 'user_sessions#destroy', as: 'logout'
   end
 
   root to: "home#index"

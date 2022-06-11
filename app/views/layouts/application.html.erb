@@ -17,20 +17,17 @@
       <div id="header-wrap">
         <h1><%= link_to "colcho.net", root_path %></h1>
         <div><%= link_to "EN", url_for( locale: 'en' ) %> | <%= link_to "PT-BR", url_for( locale: 'pt-BR' ) %></div>
-        <nav>
-          <ul>
-            <li><%= link_to t('layout.rooms'), rooms_path %></li>
-            <li><%= link_to t('layout.signup'), new_user_path %></li>
-          </ul>
-        </nav>
+        <% if user_signed_in? %>
+          <%= render 'layouts/user_navbar' %>
+        <% else %>
+          <%= render 'layouts/visitor_navbar' %>
+        <% end %>
+      </div>
     </header>
 
     <div id="content">
-      <% if notice.present? %>
-        <p id="notice"><%= notice %></p>
-      <% end %>
-      <% if alert.present? %>
-        <p id="alert"><% alert %></p>
+      <% flash.each do |name, message| %>
+        <div id="<%= name %>"><%= message %></div>
       <% end %>
 
       <%= yield %>

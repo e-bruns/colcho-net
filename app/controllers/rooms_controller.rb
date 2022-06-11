@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :require_authentication, only: %i[ new edit create update destroy ]
   before_action :set_room, only: %i[ show edit update destroy ]
 
   # GET /rooms or /rooms.json
@@ -23,27 +24,19 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
 
-    respond_to do |format|
-      if @room.save
-        format.html { redirect_to room_url(@room), notice: "Room was successfully created." }
-        format.json { render :show, status: :created, location: @room }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
-      end
+    if @room.save
+      redirect_to room_url(@room), notice: t('.success')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /rooms/1 or /rooms/1.json
   def update
-    respond_to do |format|
-      if @room.update(room_params)
-        format.html { redirect_to room_url(@room), notice: "Room was successfully updated." }
-        format.json { render :show, status: :ok, location: @room }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
-      end
+    if @room.update(room_params)
+      redirect_to room_url(@room), notice: t('.success')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -51,10 +44,7 @@ class RoomsController < ApplicationController
   def destroy
     @room.destroy
 
-    respond_to do |format|
-      format.html { redirect_to rooms_url, notice: "Room was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to rooms_url, notice: t('.success')
   end
 
   private

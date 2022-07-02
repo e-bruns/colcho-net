@@ -1,0 +1,17 @@
+<% if room.can_review? %>
+  <%= form_for room.review_route, remote: true do |f| %>
+    <div>
+    <% room.review_points.reverse_each do |point| %>
+      <%= f.radio_button :points, point, class: 'star' %>
+      <%= f.label :points, value: point do %>
+        <div class="star star-<%= point %>"></div>
+      <% end %>
+    <% end %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <span class="login_required">
+    <%= t('rooms.review.login_to_review') %>
+  </span>
+<% end %>

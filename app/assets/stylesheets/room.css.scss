@@ -1,0 +1,123 @@
+@import "shadow";
+
+.room {
+  background-color: white;
+  padding: 20px 25px;
+  margin-top: 10px;
+  @include shadow(#ccc, 0, 3px, 6px);
+}
+
+.room h2 {
+  display: inline;
+  a { font-size: 1.3em; }
+}
+
+#content .review form {
+  margin: 0;
+}
+
+#content .review {
+  margin: 0;
+  padding: 0;
+  float: right;
+  border: none;
+  position: relative;
+}
+
+.review label {
+  display: inline;
+}
+
+.review .login_required {
+  font-size: 0.8em;
+  color: #666;
+  font-variant: small-caps;
+}
+
+.review .fa-star {
+  font-size: 18px;
+}
+
+.review .fa-solid {
+  color: gold;
+  text-shadow: 1px 1px #999;
+}
+
+.review .fa-regular {
+  color: #aaa;
+}
+
+// new star css
+
+input.star {
+  display: none;
+}
+
+.review form > input {
+  //float: right;
+  width: 100%;
+}
+
+.review label div.star {
+  color: #aaa;
+  transition: all .2s;
+  font-size: 18px;
+  float: right;
+  padding: 5px;
+}
+
+input.star:checked ~ label div.star:before {
+  content:'\f005';
+  font-family: FontAwesome;
+  color: goldenrod;
+  transition: all .25s;
+}
+
+input#review_points_5:checked ~ label div.star:before {
+  color: gold;
+  text-shadow: 0 0 20px #952;
+}
+
+input#review_points_1:checked ~ label div.star:before {
+  color: #F62
+}
+
+label div.star:hover {
+  transform: rotate(-15deg) scale(1.3);
+}
+
+label div.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+
+
+
+
+
+/* Old star css
+
+.review .icon-ok,
+.review .icon-remove {
+  position: absolute;
+  right: 0;
+}
+
+.review label i {
+  font-size: 18px;
+  text-shadow: 1px 1px #999;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.review label.toggled i {
+  color: gold;
+}
+
+.review form > input {
+  display: none;
+}
+
+*/
+
+

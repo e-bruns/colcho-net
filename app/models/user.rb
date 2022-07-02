@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :rooms, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  
   validates :full_name, :location, presence: true
   validates :password, length: { maximum: 72 }, confirmation: true
   validates :bio, length: { minimum: 10 }, allow_blank: false
@@ -9,8 +12,6 @@ class User < ApplicationRecord
   before_create :generate_token
 
   scope :confirmed, -> { where('confirmed_at IS NOT NULL') }
-
-  has_many :rooms
 
   def generate_token
     self.confirmation_token = SecureRandom.urlsafe_base64

@@ -13,12 +13,18 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { locale: I18n.locale }
   end
-  
-  private
+
+  def user_signed_in?
+    current_user != nil
+    #User.where(id: session[:user_id]).present?
+    #session[:user_id].present?
+  end
 
   def current_user
     User.find_by(id: session[:user_id])
   end
+
+  private
 
   def current_user_verified?
     if User.find_by(id: session[:user_id]) == User.find(params[:id])
@@ -26,12 +32,6 @@ class ApplicationController < ActionController::Base
     else
       false
     end
-  end
-  
-  def user_signed_in?
-    #current_user != nil
-    #User.where(id: session[:user_id]).present?
-    session[:user_id].present?
   end
 
   def require_authentication

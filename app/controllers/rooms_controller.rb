@@ -1,28 +1,32 @@
 class RoomsController < ApplicationController
   before_action :require_authentication, only: %i[ new edit create update destroy ]
-  before_action :set_room, only: %i[ show edit update destroy ]
 
-  # GET /rooms or /rooms.json
   def index
-    @rooms = Room.all
+    # @rooms = Room.most_recent
+    @rooms = Room.most_recent.map do |room|
+      RoomPresenter.new(room, self, false)
+    end
   end
 
-  # GET /rooms/1 or /rooms/1.json
   def show
+    # @room = Room.find(params[:id])
+    # if user_signed_in?
+    #   @user_review = @room.reviews.find_or_initialize_by(user_id: :user_id, user_id: current_user.id)
+    # end
+    room_model = Room.find(params[:id])
+    @room = RoomPresenter.new(room_model, self)
   end
 
-  # GET /rooms/new
   def new
-    @room = Room.new
+    @room = current_user.rooms.build
   end
 
-  # GET /rooms/1/edit
   def edit
+    @room = current_user.rooms.find(params[:id])
   end
 
-  # POST /rooms or /rooms.json
   def create
-    @room = Room.new(room_params)
+    @room = current_user.rooms.build(room_params)
 
     if @room.save
       redirect_to room_url(@room), notice: t('.success')
@@ -31,8 +35,9 @@ class RoomsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /rooms/1 or /rooms/1.json
   def update
+    @room = current_user.rooms.find(params[:id])
+
     if @room.update(room_params)
       redirect_to room_url(@room), notice: t('.success')
     else
@@ -40,20 +45,15 @@ class RoomsController < ApplicationController
     end
   end
 
-  # DELETE /rooms/1 or /rooms/1.json
   def destroy
+    @room = current_user.rooms.find(params[:id])
     @room.destroy
 
     redirect_to rooms_url, notice: t('.success')
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      @room = Room.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through.
     def room_params
       params.require(:room).permit(:title, :location, :description)
     end

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       SignupMailer.confirm_email(@user).deliver
-      redirect_to @user, notice: I18n.t('users.create.success')
+      redirect_to login_path, notice: I18n.t('users.create.success')
     else
       render :new, status: :unprocessable_entity
     end

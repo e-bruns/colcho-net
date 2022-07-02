@@ -8,3 +8,8 @@
 <% if user_signed_in? & current_user_verified? %>
   <%= link_to t('.edit'), edit_user_path(@user) %>
 <% end %>
+
+<h3><%= t '.rooms_created' %></h3>
+<% @user.rooms.each do |room| %>
+  <h4><%= link_to room.title, room %></h4>
+<% end %>

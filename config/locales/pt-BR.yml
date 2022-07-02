@@ -17,15 +17,27 @@ pt-BR:
       edit: 'Editar perfil'
       location: "Localização: %{location}"
       bio: "Bio: %{bio}"
+      rooms_created: "Quartos cadastrados"
     confirmations:
       success: Email confirmado com sucesso, obrigado!
   rooms:
+    index:
+      title: 'Quartos disponíveis'
     create:
       success: Seu cadastro foi criado!
     update:
       success: Cadastro atualizado com sucesso!
     destroy:
       success: Cadastro excluido!
+    room:
+      owner_html: '&mdash; %{owner} (%{when})'
+      edit: 'Editar'
+      destroy: 'Remover'
+    review:
+      login_to_review: 'Faça o login para avaliar quartos'
+      stats:
+        one: '(1 avaliação)'
+        other: '(%{count} avaliações)'
   links:
     back: Voltar
   layout:
@@ -58,6 +70,8 @@ pt-BR:
     logout: 'Desconectar'
     needs_login: 'Para continuar, você precisa estar logado.'
     not_authorized: 'Acesso não autorizado!'
+  dialogs:
+    destroy: 'Você tem certeza que quer remover?'
 
   activemodel:
     attributes:
@@ -71,11 +85,14 @@ pt-BR:
       submit:
         user_session:
           create: Entrar
+        review:
+          update: Votar
         
   activerecord:
     models:
       user: Usuário
       room: Quarto
+      review: Avaliação
     attributes:
       user:
         bio: Biografia

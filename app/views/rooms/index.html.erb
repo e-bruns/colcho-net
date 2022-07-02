@@ -1,12 +1,5 @@
-<h1>Rooms</h1>
+<h1><%= t '.title' %></h1>
 
-<div id="rooms">
-  <% @rooms.each do |room| %>
-    <%= render room %>
-    <p>
-      <%= link_to "Show this room", room %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New room", new_room_path %>
+<% @rooms.each do |room| %>
+  <%= render room %>
+<% end %>

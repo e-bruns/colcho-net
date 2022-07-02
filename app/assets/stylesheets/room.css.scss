@@ -91,33 +91,24 @@ label div.star:before {
   font-family: FontAwesome;
 }
 
-
-
-
-
-/* Old star css
-
-.review .icon-ok,
-.review .icon-remove {
-  position: absolute;
-  right: 0;
+#content .search{
+  float: right;
+  margin: 0;
+  position: relative;
+  &:after {
+    padding: 5px;    
+    font-size: 18px;
+    font-family: FontAwesome;
+    position: absolute;
+    content: '\f002';
+    color: #bbb;
+    top: 0;
+    right: 0;
+  }
 }
 
-.review label i {
-  font-size: 18px;
-  text-shadow: 1px 1px #999;
-  cursor: pointer;
-  color: #ccc;
+.highlight {
+  font-size: inherit;
+  font-weight: inherit;
+  background-color: gold;
 }
-
-.review label.toggled i {
-  color: gold;
-}
-
-.review form > input {
-  display: none;
-}
-
-*/
-
-

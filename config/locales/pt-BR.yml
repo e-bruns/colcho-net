@@ -23,6 +23,7 @@ pt-BR:
   rooms:
     index:
       title: 'Quartos disponíveis'
+      search_results: 'Resultados da busca'
     create:
       success: Seu cadastro foi criado!
     update:
@@ -38,6 +39,8 @@ pt-BR:
       stats:
         one: '(1 avaliação)'
         other: '(%{count} avaliações)'
+    search:
+      search_for: 'Buscar por...'
   links:
     back: Voltar
   layout:

@@ -3,7 +3,10 @@ class RoomsController < ApplicationController
 
   def index
     # @rooms = Room.most_recent
-    @rooms = Room.most_recent.map do |room|
+    @search_query = params[:q]
+
+    rooms = Room.search(@search_query)
+    @rooms = rooms.most_recent.map do |room|
       RoomPresenter.new(room, self, false)
     end
   end

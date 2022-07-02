@@ -88,8 +88,6 @@ pt-BR:
       submit:
         user_session:
           create: Entrar
-        review:
-          update: Votar
         
   activerecord:
     models:

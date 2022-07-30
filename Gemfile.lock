@@ -73,6 +73,7 @@ GEM
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (9.1.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -108,6 +109,18 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -228,12 +241,14 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
+  byebug (~> 9.0, >= 9.0.6)
   capybara
   debug
   font-awesome-sass (~> 6.1.1)
   friendly_id (~> 5.4, >= 5.4.2)
   importmap-rails
   jbuilder
+  kaminari (~> 1.2, >= 1.2.2)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)

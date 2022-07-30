@@ -1,14 +1,20 @@
 class RoomsController < ApplicationController
   before_action :require_authentication, only: %i[ new edit create update destroy ]
+  
+  PER_PAGE = 2
 
   def index
     # @rooms = Room.most_recent
     @search_query = params[:q]
-
     rooms = Room.search(@search_query)
+    # rooms = Room.search(@search_query).page(params[:page]).per(PER_PAGE)
+    # @rooms = RoomCollectionPresenter.new(rooms.most_recent, self)
+
     @rooms = rooms.most_recent.map do |room|
       RoomPresenter.new(room, self, false)
     end
+    @rooms = Kaminari.paginate_array(@rooms).page(params[:page]).per(PER_PAGE)
+    
   end
 
   def show

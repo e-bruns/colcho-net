@@ -75,7 +75,13 @@ pt-BR:
     not_authorized: 'Acesso não autorizado!'
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
-
+  views:
+    pagination:
+      first: '&laquo; Primeira'
+      last: 'Última &raquo;'
+      previous: '&lt; Anterior'
+      next: 'Próxima &gt;'
+      truncate: '...'
   activemodel:
     attributes:
       user_session:

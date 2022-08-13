@@ -46,13 +46,19 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 gem "font-awesome-sass", "~> 6.1.1"
 
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 gem 'kaminari', '~> 1.2', '>= 1.2.2' 
+
+# gem 'carrierwave', '~> 0.11.2'
+
+gem 'carrierwave-i18n'
+
+gem 'rmagick', '~> 4.2', '>= 4.2.6'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -83,6 +83,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    carrierwave-i18n (0.2.0)
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
@@ -100,6 +101,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (1.0.3)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -129,6 +133,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
     msgpack (1.5.1)
@@ -188,6 +193,9 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rmagick (4.2.6)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -243,15 +251,18 @@ DEPENDENCIES
   bootsnap
   byebug (~> 9.0, >= 9.0.6)
   capybara
+  carrierwave-i18n
   debug
   font-awesome-sass (~> 6.1.1)
   friendly_id (~> 5.4, >= 5.4.2)
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   kaminari (~> 1.2, >= 1.2.2)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)
+  rmagick (~> 4.2, >= 4.2.6)
   sassc-rails
   selenium-webdriver
   sprockets-rails

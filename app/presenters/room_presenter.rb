@@ -43,4 +43,16 @@ class RoomPresenter
     @room.reviews.size
   end
 
+  # def picture_url
+  #   @room.picture_url
+  # end
+
+  # def thumb_url
+  #   @room.picture.thumb_url
+  # end
+
+  # def has_picture?
+  #   @room.picture?
+  # end
+
 end

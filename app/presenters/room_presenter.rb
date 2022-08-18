@@ -1,5 +1,5 @@
 class RoomPresenter
-  delegate :user, :created_at, :description, :location, :title, to: :@room
+  delegate :user, :created_at, :description, :location, :title, :image, to: :@room
 
   def initialize(room, context, show_form=true)
     @room = room

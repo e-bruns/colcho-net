@@ -4,6 +4,10 @@ class Room < ApplicationRecord
   #attr_accessor :description, :location, :title, :picture
 
   has_many :reviews, dependent: :destroy
+  has_one_attached :image do |attachable|
+    attachable.variant :resized, resize_to_limit: [500, 500]
+    attachable.variant :thumb, resize_to_limit: [100, 100]
+  end
   belongs_to :user
   
   scope :most_recent, -> { order('created_at DESC') }

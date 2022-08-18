@@ -36,7 +36,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = current_user.rooms.build(room_params)
-
+    byebug
     if @room.save
       redirect_to room_url(@room), notice: t('.success')
     else
@@ -64,6 +64,6 @@ class RoomsController < ApplicationController
   private
   # Only allow a list of trusted parameters through.
     def room_params
-      params.require(:room).permit(:title, :location, :description)
+      params.require(:room).permit(:title, :location, :description, :image)
     end
 end

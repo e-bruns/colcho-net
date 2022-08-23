@@ -23,9 +23,9 @@ class Room < ApplicationRecord
 
   def self.search(query)
     if query.present?
-      where(['location LIKE :query OR
-              title LIKE :query OR
-              description LIKE :query', :query => "%#{query}%"])
+      where(['location ILIKE :query OR
+              title ILIKE :query OR
+              description ILIKE :query', :query => "%#{sanitize_sql_like(query)}%"])
     else
       where(nil)
     end

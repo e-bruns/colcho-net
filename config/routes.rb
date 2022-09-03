@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resource :user_sessions, only: [:create, :new, :destroy]
     get 'login', to: 'user_sessions#new', as: 'login'
     get 'logout', to: 'user_sessions#destroy', as: 'logout'
+    get 'resend_confirmation', to: 'user_sessions#resend_confirmation_token', as: 'resend_confirmation'
   end
 
   root to: "home#index"

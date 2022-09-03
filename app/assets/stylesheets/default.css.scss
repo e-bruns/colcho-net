@@ -103,7 +103,7 @@ form {
   }
 }
 
-input[type=text], input[type=password], textarea {
+input[type=text], input[type=password], input[type=email], textarea {
   color: #444;
   font-size: 12px;
   border: 1px solid #ccc;
@@ -125,7 +125,7 @@ input[type=text], input[type=password], textarea {
   
   label { color: $error-text-color; }
 
-  input[type=text], input[type=password], textarea {
+  input[type=text], input[type=password], input[type=email], textarea {
     border: 1px solid rgba(189, 74, 72, 0.5);
     @include shadow(rbga(189, 74, 72, 0.2), 0px, 0px, 8px);
     &:focus { border: 1px solid rgba(189, 74, 72, 0.6); }

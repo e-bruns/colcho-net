@@ -30,7 +30,7 @@
 
     <div id="content">
       <% flash.each do |name, message| %>
-        <div id="<%= name %>"><%= message %></div>
+        <div id="<%= name %>"><%= message.html_safe %></div>
       <% end %>
 
       <%= yield %>

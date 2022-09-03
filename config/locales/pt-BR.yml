@@ -57,7 +57,7 @@ pt-BR:
     form_error: Há erros no formulário, por favor verifique.
   signup_mailer:
     confirm_email:
-      subject: 'Colcho.ent - Confirme seu email'
+      subject: 'Colcho.net - Confirme seu email'
       title: 'Seja bem vindo ao Colcho.net'
       body: 'Seja bem vindo ao Colcho.net, %{full_name}. O Colcho.net é o lugar ideal para você alugar aquele quarto sobrando na sua casa e ainda conhecer gente do mundo inteiro.'
       confirm_link_html: 'Para você começar a usar o site, acesse o link: %{link}'
@@ -70,12 +70,14 @@ pt-BR:
     create:
       signed_in: 'Login efetuardo com sucesso!'
       sign_in_error: 'Algo deu errado! Verifique seu e-mail ou senha.'
+      sign_in_confirmation_token_error_html: 'Você não fez a confirmação do seu e-mai! A confirmação é necessária para começar a usar o site! Verifique seu e-mail ou <a href="%{link}">envie novamente</a>'
     destroy:
       logged_out: 'Você não está mais logado!'
     login: 'Entrar'
     logout: 'Desconectar'
     needs_login: 'Para continuar, você precisa estar logado.'
     not_authorized: 'Acesso não autorizado!'
+    sign_in_resent_confirmation: 'E-mail de confirmação foi reenviado! Para começar a usar o site, acesse seu e-mail e clique no link de confirmação.'
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
   views:

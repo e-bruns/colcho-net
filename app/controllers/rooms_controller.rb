@@ -36,7 +36,6 @@ class RoomsController < ApplicationController
 
   def create
     @room = current_user.rooms.build(room_params)
-    byebug
     if @room.save
       redirect_to room_url(@room), notice: t('.success')
     else
